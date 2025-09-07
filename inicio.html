@@ -7,25 +7,42 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="titulo">
-        <h1>Iniciar Sesión</h1>
-    </div>
-    <div id="body">
-        <form action="#" id="formulario">
-            <div class="row">
-                <label for="usuario">Ingresa tu nombre de Usuario: <br></label>
-                <input type="text" name="usuario" id="usuario" placeholder="Usuario123">
+    <header>
+        <div class="contenedor-header">
+            <div class="logo">
+                <img src="imgs/Logo Level-Up.png" alt="Level-up Gamer Logo">
+                <h2>Level-up Gamer</h2>
             </div>
-            <div class="row">
-                <label for="clave">Ingresa tu contraseña: <br></label>
-                <input type="password" name="clave" id="clave" placeholder="contraseña123">
-            </div>
-            <div class="row">
-                <button type="reset">Reiniciar</button>
-                <button type="submit">Iniciar Sesión</button>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="contenedor-principal">
+        <div id="titulo">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <div id="body">
+            <form action="#" id="formulario">
+                <div class="row">
+                    <label for="correo">Ingresa tu Correo: <br></label>
+                    <input type="email" name="correo" id="correo" placeholder="Correo123@gmail.com">
+                </div>
+                <div class="row">
+                    <label for="clave">Ingresa tu contraseña: <br></label>
+                    <input type="password" name="clave" id="clave" placeholder="contraseña123">
+                </div>
+                <div class="row">
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+            </form>
             <p>¿No tienes una cuenta?<br> <a href="#">Registrate aqui</a></p>
-        </form>
+        </div>
     </div>
 </body>
 </html>

@@ -1,47 +1,233 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
-*{
-    font-family: "Roboto", sans-serif;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    height:  8vh;
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+ header {
+    font-family: "Orbitron", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: black;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(30, 144, 255, 0.3);
+    z-index: 1000;
+    padding: 1rem 0;
 }
 
-#titulo{
+.contenedor-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-form{
+.logo {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0px 0px 5px #00000069;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+}
+
+.logo h2 {
+    font-family: "Orbitron", sans-serif;
+    background: linear-gradient(45deg, #1E90FF, #39FF14);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #39FF14;
+    background: rgba(57, 255, 20, 0.1);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #1E90FF, #39FF14);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+ #contenedor-principal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+#titulo {
+    font-family: "Orbitron", sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#titulo h1 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+}
+
+#body {
+    background: rgba(30, 30, 30, 0.8);
+    padding: 2.5rem;
     border-radius: 15px;
-    padding: 3rem;
-    width: 40vw;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(30, 144, 255, 0.3);
+    min-width: 400px;
+    text-align: center;
 }
 
-#body{
-    min-height: 40vh;
+#formulario {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 3rem;
+    gap: 1.5rem;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: left;
+}
+
+.row label {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.row input {
+    padding: 12px 15px;
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.9);
+    color: #FFFFFF;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.row input::placeholder {
+    color: #D3D3D3;
+}
+
+.row input:focus {
+    border-color: #39FF14;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+    transform: translateY(-2px);
+}
+
+.row button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #1E90FF, #39FF14);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.row button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(30, 144, 255, 0.4);
+    background: linear-gradient(45deg, #39FF14, #1E90FF);
+}
+
+.row button:active {
+    transform: translateY(-1px);
+}
+
+#body p {
+    margin-top: 2rem;
+    color: #D3D3D3;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#body a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#body a:hover {
+    color: #39FF14;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+@media (max-width: 480px) {
+    #body {
+        min-width: 300px;
+        margin: 1rem;
+        padding: 2rem;
+    }
+    
+    #titulo h1 {
+        font-size: 2rem;
+    }
 }
