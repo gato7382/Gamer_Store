@@ -231,3 +231,66 @@ nav ul li a:hover::after {
         font-size: 2rem;
     }
 }
+
+#user-area button {
+  background: #2d2d2d;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+#user-area button:hover {
+    color: #39FF14;
+    background: rgba(57, 255, 20, 0.1);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+  transform: translateY(-2px) scale(1.05);
+}
+
+#user-area a {
+  background: #2d2d2d;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 0 5px;
+  font-size: 1em;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+  display: inline-block;
+}
+
+#user-area a:hover {
+    color: #39FF14;
+    background: rgba(57, 255, 20, 0.1);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+  transform: translateY(-2px) scale(1.05);
+}
+
+#user-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-login {
+    background-color: #39FF14;
+    color: #000;
+    border: 2px solid #39FF14;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn-login:hover {
+    background-color: transparent;
+    color: #39FF14;
+}
