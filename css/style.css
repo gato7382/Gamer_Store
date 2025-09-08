@@ -11,12 +11,11 @@ body {
     font-family: "Roboto", sans-serif;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #FFFFFF;
+    padding-top: 100px;
+    overflow-x: hidden;
 }
+
 
  header {
     font-family: "Orbitron", sans-serif;

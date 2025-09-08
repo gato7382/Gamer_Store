@@ -59,13 +59,18 @@ async function login() {
 // REGISTRO
 async function registrar() {
   const nombre = document.getElementById("reg-nombre").value;
-  const edad = document.getElementById("reg-edad").value;
+  const edad = parseInt(document.getElementById("reg-edad").value, 10);
   const email = document.getElementById("reg-email").value;
   const clave = document.getElementById("reg-clave").value;
   const resultado = document.getElementById("resultado");
 
   if (!nombre || !edad || !email || !clave) {
     resultado.innerText = "Completa todos los campos";
+    return;
+  }
+
+  if (isNaN(edad) || edad < 18) {
+    resultado.innerText = "Debes ser mayor de 18 años para registrarte.";
     return;
   }
 
@@ -83,7 +88,7 @@ async function registrar() {
     return;
   }
 
-  const nuevoUsuario = { nombre, email, clave };
+  const nuevoUsuario = { nombre, email, clave , edad};
   nuevosUsuarios.push(nuevoUsuario);
   localStorage.setItem("usuariosNuevos", JSON.stringify(nuevosUsuarios));
   localStorage.setItem("usuarioActivo", JSON.stringify(nuevoUsuario));
