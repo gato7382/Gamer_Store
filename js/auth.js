@@ -7,7 +7,7 @@ function mostrarUsuarioActivo() {
   const usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
   if (usuario) {
     userArea.innerHTML = `
-      <a href="perfil.html" class="btn btn-login" style="background-color:#39FF14;color:#000;border:2px solid #39FF14;">
+      <a href="perfil.html" 14;"class="btn btn-login" style="background-color:#39FF14;color:#000;border:2px solid #39FF>
         <i class="fas fa-user"></i> Mi Cuenta
       </a>
     `;
