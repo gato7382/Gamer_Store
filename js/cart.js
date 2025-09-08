@@ -2,43 +2,46 @@ class ShoppingCart {
     constructor() {
         this.items = this.loadCart();
         this.updateCartDisplay();
-}
-
-loadCart() {
-    if (window.cartData) {
-        return window.cartData;
     }
-    window.cartData = [];
-    return [];
-}
 
-saveCart() {
-    window.cartData = this.items;
-    
-    window.dispatchEvent(new CustomEvent('cartUpdated', {
-        detail: { items: this.items, total: this.getTotal() }
-    }));
-}
-
-addItem(id, name, price, image = null) {
-    const existingItem = this.items.find(item => item.id === id);
-    
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        this.items.push({
-            id,
-            name,
-            price,
-            quantity: 1,
-            image
-        });
+    loadCart() {
+        const data = localStorage.getItem('levelUpGamerCart');
+        if (data) {
+            try {
+                return JSON.parse(data);
+            } catch (e) {
+                return [];
+            }
+        }
+        return [];
     }
-    
-    this.saveCart();
-    this.updateCartDisplay();
-    this.showAddedNotification(name);
-}
+
+    saveCart() {
+        localStorage.setItem('levelUpGamerCart', JSON.stringify(this.items));
+        window.dispatchEvent(new CustomEvent('cartUpdated', {
+            detail: { items: this.items, total: this.getTotal() }
+        }));
+    }
+
+    addItem(id, name, price, image = null) {
+        const existingItem = this.items.find(item => item.id === id);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            this.items.push({
+                id,
+                name,
+                price,
+                quantity: 1,
+                image
+            });
+        }
+
+        this.saveCart();
+        this.updateCartDisplay();
+        this.showAddedNotification(name);
+    }
 
 removeItem(id) {
     this.items = this.items.filter(item => item.id !== id);
@@ -161,18 +164,46 @@ if (!cartIcon.contains(event.target) && dropdown.classList.contains('active')) {
 }
 
 function checkout() {
-if (cart.items.length === 0) {
-    alert('Tu carrito está vacío');
-    return;
-}
+    // Validar si hay usuario conectado
+    const usuarioActivo = localStorage.getItem("usuarioActivo");
+    if (!usuarioActivo) {
+        alert("Debes iniciar sesión para continuar con el checkout.");
+        window.location.href = "ini_sesion.html";
+        return;
+    }
 
-const total = cart.getTotal();
-const itemCount = cart.getTotalItems();
+    if (cart.items.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+    }
 
-alert(`🚀 ¡Redirigiendo al checkout!\n\nProductos: ${itemCount}\nTotal: ${total.toLocaleString()}\n\n¡Gracias por elegir Level-Up Gamer!`);
+    // Obtener email del usuario activo
+    let usuario = {};
+    try {
+        usuario = JSON.parse(usuarioActivo);
+    } catch (e) {
+        alert("Error al obtener los datos del usuario. Por favor, inicia sesión nuevamente.");
+        window.location.href = "ini_sesion.html";
+        return;
+    }
 
-// Aquí va el link para pagar
-// window.location.href = 'checkout.html';
+    let total = cart.getTotal();
+    let descuento = 0;
+    let mensajeDescuento = "";
+
+    // Validar correo DuocUC y aplicar descuento
+    if (usuario.email && usuario.email.endsWith("@duocuc.cl")) {
+        descuento = Math.round(total * 0.2);
+        total = total - descuento;
+        mensajeDescuento = `\nDescuento Duoc aplicado: -${descuento.toLocaleString()}`;
+    }
+
+    const itemCount = cart.getTotalItems();
+
+    alert(`🚀 ¡Redirigiendo al checkout!\n\nProductos: ${itemCount}\nTotal: ${total.toLocaleString()}${mensajeDescuento}\n\n¡Gracias por elegir Level-Up Gamer!`);
+
+    // Aquí va el link para pagar
+    // window.location.href = 'checkout.html';
 }
 
 function addToCart(id, name, price) {

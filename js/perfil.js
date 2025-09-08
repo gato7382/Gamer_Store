@@ -30,7 +30,7 @@ document.getElementById('profileForm').addEventListener('submit', function(e) {
     const nombre = document.getElementById('firstName').value.trim();
     const apellidos = document.getElementById('lastName').value.trim();
     const email = document.getElementById('email').value.trim();
-    const telefono = document.getElementById('phone').value.trim();
+    const telefono = document.getElementById('phone').value.replace(/\s+/g, '').trim();
     const fechaNacimiento = document.getElementById('birthdate').value;
     const gamerTag = document.getElementById('gamerTag').value.trim();
 
