@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer</title>
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+<body>
+     <header>
+        <div class="contenedor-header">
+            <div class="logo">
+                <img src="imgs/Logo Level-Up.png" alt="Level-up Gamer Logo">
+                <h2>Level-up Gamer</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                </ul>
+            </nav>
+            <div class="user-cart-area">
+                <div id="user-area">
+                    <a href="ini_sesion.html">Iniciar Sesión</a>
+                    <a href="registro.html">Registrarse</a>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.36 2.45c-.16.28-.24.61-.24.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <div class="cart-count" id="cart-count">0</div>
+                    <div class="cart-dropdown" id="cart-dropdown">
+                        <div class="cart-header">
+                            <h3>🛒 Mi Carrito</h3>
+                        </div>
+                        <div class="cart-items" id="cart-items">
+                            <div class="empty-cart">
+                                <p>Tu carrito está vacío</p>
+                                <p>¡Agrega algunos productos gaming!</p>
+                            </div>
+                        </div>
+                        <div class="cart-total" id="cart-total-section" style="display: none;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <strong>Total: $<span id="cart-total">0</span></strong>
+                            </div>
+                            <button class="checkout-btn" onclick="checkout()">
+                                🚀 Proceder al Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-detail-container">
+            <div class="product-gallery">
+                <div class="product-main-image">
+                    <img src="imgs/mouse.webp" alt="Mouse" id="main-image">
+                </div>
+                <div class="product-thumbnails">
+                    <div class="product-thumbnail active" onclick="changeImage(0)">
+                        <img src="imgs/mouse.webp" alt="Mouse">
+                    </div>
+                    <div class="product-thumbnail" onclick="changeImage(1)">
+                        <img src="imgs/mouse1.jpg" alt="Mouse">
+                    </div>
+                    <div class="product-thumbnail" onclick="changeImage(2)">
+                        <img src="imgs/mouse3.webp" alt="Mouse">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <div class="product-code">MS001</div>
+                <h1 class="product-title">Mouse Gamer Logitech G502 HERO</h1>
+                <div class="product-price">$49.990</div>
+                <p class="product-description">
+                Con sensor de alta precisión y botones
+personalizables, este mouse es ideal para gamers que buscan un control preciso y
+personalización.
+                </p>
+                
+                <div class="product-specs">
+                    <h3>Detalles</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-name">Fabricante</span>
+                            <span class="spec-value">Logitech G</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Sensor</span>
+                            <span class="spec-value">HERO 25K (25,600 DPI máx.)</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Botones</span>
+                            <span class="spec-value">11 programables</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Conexión</span>
+                            <span class="spec-value">Cableado USB</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Peso</span>
+                            <span class="spec-value">5 pesas de 3.6g</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Iluminación</span>
+                            <span class="spec-value">RGB LIGHTSYNC personalizable</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="btn-add-cart" onclick="addToCart('MS001', 'Mouse Gamer Logitech G502 HERO', 49990, 'img')">
+                        🛒 Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <section class="reviews-section">
+            <h2 class="section-title">Reseñas de Clientes</h2>
+            
+            <div class="reviews-container">
+                <div class="review-form">
+                    <h3>Escribe tu reseña</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="reviewerName">Nombre</label>
+                            <input type="text" id="reviewerName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Calificación</label>
+                            <div class="rating-stars">
+                                <span class="star" onclick="setRating(1)">★</span>
+                                <span class="star" onclick="setRating(2)">★</span>
+                                <span class="star" onclick="setRating(3)">★</span>
+                                <span class="star" onclick="setRating(4)">★</span>
+                                <span class="star" onclick="setRating(5)">★</span>
+                            </div>
+                            <input type="hidden" id="ratingValue" value="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewText">Tu reseña</label>
+                            <textarea id="reviewText" placeholder="Comparte tu experiencia con este producto..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Enviar Reseña</button>
+                    </form>
+                </div>
+                
+                <div class="reviews-list" id="reviewsList">
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <footer>
+        <div class="footer-content">
+            <p><strong>Level-Up Gamer</strong> - Tu tienda online de productos gaming en Chile</p>
+            <p>Proporcionar productos de alta calidad para gamers en todo Chile, con una experiencia única y personalizada.</p>
+            <div class="social-links">
+                <a href="#" title="WhatsApp Soporte">📱</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Facebook">👥</a>
+                <a href="#" title="Discord">💬</a>
+            </div>
+            <p style="margin-top: 2rem; color: #666;">&copy; 2024 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/images.js"></script>
+</body>
+</html>
