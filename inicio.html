@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level-up Gamer</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
     <header>
@@ -16,15 +16,150 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
                 </ul>
             </nav>
-            <div id="user-area"></div>
+            <div class="user-cart-area">
+                <div id="user-area">
+                    <a href="ini_sesion.html">Iniciar Sesión</a>
+                    <a href="registro.html">Registrarse</a>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.36 2.45c-.16.28-.24.61-.24.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <div class="cart-count" id="cart-count">0</div>
+                    <div class="cart-dropdown" id="cart-dropdown">
+                        <div class="cart-header">
+                            <h3>🛒 Mi Carrito</h3>
+                        </div>
+                        <div class="cart-items" id="cart-items">
+                            <div class="empty-cart">
+                                <p>Tu carrito está vacío</p>
+                                <p>¡Agrega algunos productos gaming!</p>
+                            </div>
+                        </div>
+                        <div class="cart-total" id="cart-total-section" style="display: none;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <strong>Total: $<span id="cart-total">0</span></strong>
+                            </div>
+                            <button class="checkout-btn" onclick="checkout()">
+                                🚀 Proceder al Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <script src="js/auth.js"></script>
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>¡Desafía tus límites con Level-Up Gamer!</h1>
+                <p>Conviértete en el héroe de tu propia historia y únete a nuestra comunidad de jugadores. Encuentra los mejores productos gaming en Chile con envío a todo el país.</p>
+                <a href="#catalogo" class="cta-button">¡Explora el Catálogo!</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>¿Por qué elegir Level-Up Gamer?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Envío Nacional</h3>
+                    <p>Despachos a todo Chile para que puedas recibir tus productos gaming favoritos sin importar dónde te encuentres.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Sistema LevelUp</h3>
+                    <p>Gana puntos con cada compra y referido. Canjea tus puntos por productos y descuentos exclusivos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎓</div>
+                    <h3>Descuento Duoc</h3>
+                    <p>¿Eres estudiante de Duoc? ¡Obtén un 20% de descuento de por vida al registrarte con tu correo institucional!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛠️</div>
+                    <h3>Soporte Técnico</h3>
+                    <p>Contamos con servicio técnico especializado para resolver todas tus dudas y problemas técnicos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">👥</div>
+                    <h3>Programa de Referidos</h3>
+                    <p>Invita a tus amigos y gana puntos LevelUp por cada nuevo miembro que se una a nuestra comunidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⭐</div>
+                    <h3>Productos de Calidad</h3>
+                    <p>Trabajamos solo con los mejores fabricantes y distribuidores para garantizar productos auténticos y de alta calidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories" id="catalogo">
+            <h2>Nuestras Categorías</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>🎲 Juegos de Mesa</h3>
+                    <p>Catan, Carcassonne y más</p>
+                </div>
+                <div class="category-card">
+                    <h3>🎮 Accesorios</h3>
+                    <p>Controles y auriculares</p>
+                </div>
+                <div class="category-card">
+                    <h3>🖥️ Consolas</h3>
+                    <p>PlayStation, Xbox y más</p>
+                </div>
+                <div class="category-card">
+                    <h3>💻 PC Gamers</h3>
+                    <p>Equipos de alto rendimiento</p>
+                </div>
+                <div class="category-card">
+                    <h3>🪑 Sillas Gamers</h3>
+                    <p>Comodidad para largas sesiones</p>
+                </div>
+                <div class="category-card">
+                    <h3>🖱️ Mouse & Mousepad</h3>
+                    <p>Precisión y control</p>
+                </div>
+                <div class="category-card">
+                    <h3>👕 Ropa Personalizada</h3>
+                    <p>Poleras y polerones únicos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="community">
+            <h2>Únete a la Comunidad Level-Up</h2>
+            <p>Más que una tienda, somos una comunidad de gamers apasionados. Participa en eventos, gana puntos LevelUp y conecta con otros jugadores en todo Chile.</p>
+            <div>
+                <span class="level-up-badge">🏆 Eventos Nacionales</span>
+                <span class="level-up-badge">🎉 Puntos LevelUp</span>
+                <span class="level-up-badge">👑 Niveles VIP</span>
+                <span class="level-up-badge">💬 Comunidad Activa</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Level-Up Gamer</strong> - Tu tienda online de productos gaming en Chile</p>
+            <p>Proporcionar productos de alta calidad para gamers en todo Chile, con una experiencia única y personalizada.</p>
+            <div class="social-links">
+                <a href="#" title="WhatsApp Soporte">📱</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Facebook">👥</a>
+                <a href="#" title="Discord">💬</a>
+            </div>
+            <p style="margin-top: 2rem; color: #666;">&copy; 2024 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/carrito.js"></script>
 </body>
 
 </html>

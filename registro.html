@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level-up Gamer - Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registro.css">
 </head>
 <body>
     <header>
@@ -19,33 +19,45 @@
                     <li><a href="#">Catálogo</a></li>
                 </ul>
             </nav>
-            <div id="user-area"></div>
+            <div id="user-area">
+                <a href="ini_sesion.html">Iniciar Sesión</a>
+                <a href="registro.html">Registrarse</a>
+            </div>
         </div>
     </header>
-    <div id="titulo">
-        <h1>Registro</h1>
+
+    <div id="contenedor-principal">
+        <div id="titulo">
+            <h1>Registro</h1>
+        </div>
+        <div id="body">
+            <form onsubmit="event.preventDefault(); registrar();">
+                <div class="row">
+                    <label for="reg-nombre">Ingresa tu nombre:</label>
+                    <input type="text" id="reg-nombre" placeholder="Nombre" required>
+                </div>
+                <div class="row">
+                    <label for="reg-edad">Ingresa tu edad:</label>
+                    <input type="number" id="reg-edad" placeholder="Edad" required>
+                </div>
+                <div class="row">
+                    <label for="reg-email">Ingresa tu email:</label>
+                    <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="row">
+                    <label for="reg-clave">Ingresa tu contraseña:</label>
+                    <input type="password" id="reg-clave" placeholder="Contraseña" required>
+                </div>
+                <div class="row">
+                    <button type="submit">Registrarse</button>
+                </div>
+            </form>
+            <div id="resultado"></div>
+            <p>¿Ya tienes una cuenta?<br> <a href="ini_sesion.html">Inicia sesión aquí</a></p>
+        </div>
     </div>
-    <div id="body">
-        <form onsubmit="event.preventDefault(); registrar();">
-            <div class="row">
-                <label for="correo">Ingresa tu nombre: <br></label>
-                <input type="text" id="reg-nombre" placeholder="Nombre" required><br>
-            </div>
-            <div class="row">
-                <label for="correo">Ingresa tu email: <br></label>
-                <input type="email" id="reg-email" placeholder="Correo electrónico" required><br>
-            </div>
-            <div class="row">
-                <label for="clave">Ingresa tu contraseña: <br></label>
-                <input type="password" id="reg-clave" placeholder="Contraseña" required><br>
-            </div>
-            <div class="row">
-                <button type="submit">Registrarse</button>
-            </div>
-        </form>
-        <div id="resultado" style="color:red; margin-top:10px;"></div>
-        <p>¿Ya tienes una cuenta?<br> <a href="ini_sesion.html">Inicia sesion aqui</a></p>
-    </div>
+
+
     <script src="js/auth.js"></script>
     <script>
         document.getElementById('reg-form').addEventListener('submit', function(e) {

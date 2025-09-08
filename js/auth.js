@@ -59,11 +59,12 @@ async function login() {
 // REGISTRO
 async function registrar() {
   const nombre = document.getElementById("reg-nombre").value;
+  const edad = document.getElementById("reg-edad").value;
   const email = document.getElementById("reg-email").value;
   const clave = document.getElementById("reg-clave").value;
   const resultado = document.getElementById("resultado");
 
-  if (!nombre || !email || !clave) {
+  if (!nombre || !edad || !email || !clave) {
     resultado.innerText = "Completa todos los campos";
     return;
   }
